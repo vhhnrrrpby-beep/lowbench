@@ -1,0 +1,9 @@
+[package]
+name = "lowbench"
+version = "0.1.0"
+edition = "2024"
+
+description = "A tiny benchmarking utility for Rust."
+license = "MIT"
+
+[dependencies]
