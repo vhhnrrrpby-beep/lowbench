@@ -1,4 +1,3 @@
-use std::hint::black_box;
 use super::*;
 
 fn add(a:usize,b:i32) -> i32 {
@@ -6,20 +5,25 @@ fn add(a:usize,b:i32) -> i32 {
 }
 
 fn fib() { 
-    black_box(1+1);
+    let _ = 1+1;
 }
+
+
 
 #[test] 
 fn bench_test() {
-    println!("first test \n\n\n");
+    println!("first test \n");
     bench(|| {
         for (i,x) in (3..104).enumerate() {
             add(i,x);
         }
     });
 
-    println!("second test \n\n\n");
+    println!("second test \n");
     bench(|| {
         fib();
     });
+
+    println!("third test \n");
+    bench(|| {});
 }
