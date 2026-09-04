@@ -7,6 +7,7 @@ mod test;
 
 
 pub fn bench(mut f:impl FnMut()) {
+    println!("Benchmark Running...");
     for _ in 0..1000 {
         f();
     };
@@ -23,5 +24,6 @@ pub fn bench(mut f:impl FnMut()) {
         results[i] = elapsed;
     }
 
+    println!("Benchmark Result");
     println!("averages :: {:?}",results.map(|x| x/1000));
 }
