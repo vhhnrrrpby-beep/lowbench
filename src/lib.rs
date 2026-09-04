@@ -14,7 +14,7 @@ const MAX_WARMUP_ATTEMPT:u8 = 10;
 const WARMUP_COUNTS: [usize; 3] = [100, 1000, 10000];
 pub fn bench(mut f:impl FnMut())  -> [Duration;3]{
     let all_start = Instant::now();
-    println!("Benchmark Running...");
+    println!("\nBenchmark Running...");
 
     let mut warmup_count = 0;
     let mut tests:[Duration;2] = [Duration::new(0,0),Duration::new(0,0)];
@@ -62,7 +62,7 @@ pub fn bench(mut f:impl FnMut())  -> [Duration;3]{
     println!("Benchmark Result");
     println!("averages :: {:?}",results.map(|x| x/(count as u32)));
     println!("attempts :: {count}");
-    println!("Running time :: {:?}",all_start.elapsed());
+    println!("Running time :: {:?}\n",all_start.elapsed());
     results.map(|x| x/(count as u32))
 }
 
