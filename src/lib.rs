@@ -1,14 +1,27 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
+use std::time::Instant;
+use std::hint::black_box;
+use std::time::Duration;
 
 #[cfg(test)]
-mod tests {
-    use super::*;
+mod test;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+
+pub fn bench(mut f:impl FnMut()) {
+    for _ in 0..1000 {
+        f();
+    };
+
+    let mut results:[Duration;3] = [Duration::new(0,0);3];
+
+
+    for i in 0..3 {
+        let start = Instant::now();
+        for _ in 0..1000 {
+            black_box(f());
+        };
+        let elapsed = start.elapsed();
+        results[i] = elapsed;
     }
+
+    println!("averages :: {:?}",results.map(|x| x/1000));
 }
