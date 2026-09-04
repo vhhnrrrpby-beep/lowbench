@@ -7,4 +7,8 @@ description = "A tiny benchmarking utility for Rust."
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/vhhnrrrpby-beep/lowbench"
+
+keywords = ["benchmark", "performance", "profiling"]
+categories = ["development-tools::profiling"]
+
 [dependencies]
