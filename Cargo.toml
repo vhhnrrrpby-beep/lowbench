@@ -12,3 +12,7 @@ keywords = ["benchmark", "performance", "profiling"]
 categories = ["development-tools::profiling"]
 
 [dependencies]
+
+[features]
+default = ["std"]
+std = []
