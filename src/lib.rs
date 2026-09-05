@@ -28,6 +28,8 @@ impl Timer for Instant {
 /// The benchmark performs a warm-up phase and then
 /// measures the function three times.
 /// The arguments for this function change depending on whether `std` or `no_std` is used.
+/// If you don't use std, the benchmark can be implemented as follows:
+/// `pub fn bench<T: Timer>(f:impl FnMut()) -> [Duration;3]`
 #[cfg(feature = "std")]
 pub fn bench(f: impl FnMut()) -> [Duration; 3] {
     let all_start = Instant::now();
